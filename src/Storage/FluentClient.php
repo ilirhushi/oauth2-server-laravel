@@ -178,12 +178,10 @@ class FluentClient extends AbstractFluentAdapter implements ClientInterface
     protected function hydrateEntity($result)
     {
         $client = new ClientEntity($this->getServer());
-        $client->hydrate([
-            'id' => $result['id'],
-            'name' => $result['name'],
-            'secret' => $result['secret'],
-            'redirectUri' => (isset($result['redirect_uri']) ? $result['redirect_uri'] : null)
-        ]);
+        'id' => $result->id,
+            'name' => $result->name,
+            'secret' => $result->secret,
+            'redirectUri' => (isset($result->redirect_uri) ? $result->redirect_uri : null)
 
         return $client;
     }
